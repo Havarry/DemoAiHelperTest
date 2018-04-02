@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_my_sdk"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="0"
+        android:fitsSystemWindows="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="基于自然交互的调查问卷系统"
+            android:textColor="#474747"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="#f0f0f0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        android:layout_weight="1">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/tv_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="第1题、 您的文化程度是"
+                android:textSize="18sp"/>
+            <TextView
+                android:id="@+id/tv_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_question"
+                android:layout_marginTop="6dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:text="1、小学及以下\n2、初中\n3、高中(含中专)\n4、大专及以上"/>
+
+            <TextView
+                android:id="@+id/tv_selected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@id/tv_answer"
+                android:textSize="18sp"
+                android:textColor="#f5160a"
+                android:text="您选择的选项为：1"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/speakLayout"
+            android:layout_width="@dimen/x400"
+            android:layout_height="@dimen/y300"
+            android:layout_centerInParent="true"
+            android:background="@drawable/background"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/img_speakAnimation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/animation_speaking" />
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_speakAnimation"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="手指上滑，取消发送"
+                android:textColor="#acb1c7"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_last"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/shape_send"
+            android:text="上一题" />
+
+        <Button
+            android:id="@+id/btn_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/shape_send"
+            android:text="跳过"/>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:background="@drawable/shape_send"
+            android:text="下一题"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y1"
+        android:background="#f0f0f0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y94"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="0"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/img_voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/y10"
+            android:layout_marginLeft="@dimen/x26"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_marginTop="@dimen/y10"
+            android:src="@drawable/icon_voice"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/img_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/y10"
+            android:layout_marginLeft="@dimen/x26"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_marginTop="@dimen/y10"
+            android:src="@drawable/icon_keyboard" />
+
+        <Button
+            android:id="@+id/btn_talk"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="@dimen/x540"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/y10"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_marginTop="@dimen/y10"
+            android:background="@drawable/shape_talk"
+            android:gravity="center"
+            android:text="按住说话"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edi_write"
+            android:layout_width="@dimen/x540"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/y10"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x10"
+            android:layout_marginTop="@dimen/y10"
+            android:background="@drawable/shape"
+            android:drawableLeft="@drawable/sync"
+            android:drawableRight="@drawable/sync"
+            android:ems="11"
+            android:hint="请输入"
+            android:inputType="textMultiLine"
+            android:lines="2"
+            android:maxLines="2"
+            android:textColor="#333333"
+            android:textColorHint="#cbcbcb"
+            android:textCursorDrawable="@null"
+            android:textSize="16sp"
+            android:typeface="sans"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="@dimen/x82"
+            android:layout_height="@dimen/x68"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/y10"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x26"
+            android:layout_marginTop="@dimen/y10"
+            android:background="@drawable/shape_send"
+            android:text="发送"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/img_help"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/y10"
+            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginRight="@dimen/x26"
+            android:layout_marginTop="@dimen/y10"
+            android:src="@drawable/icon_help" />
+    </RelativeLayout>
+
+
+</LinearLayout>
+

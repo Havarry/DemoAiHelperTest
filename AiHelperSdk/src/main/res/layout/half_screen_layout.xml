@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/half_screen_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y342">
+
+        <RelativeLayout
+            android:id="@+id/half_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y90"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="0"
+            android:background="#ffffff">
+
+            <ImageView
+                android:id="@+id/half_img_voice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginLeft="@dimen/x26"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/y10"
+                android:src="@drawable/icon_voice"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/half_img_write"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginLeft="@dimen/x26"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/y10"
+                android:src="@drawable/icon_keyboard" />
+
+            <Button
+                android:id="@+id/half_btn_talk"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="@dimen/x540"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/y10"
+                android:background="@drawable/shape_talk"
+                android:gravity="center"
+                android:text="按住说话"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/half_edi_write"
+                android:layout_width="@dimen/x540"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_marginTop="@dimen/y10"
+                android:background="@drawable/shape"
+                android:drawableLeft="@drawable/sync"
+                android:drawableRight="@drawable/sync"
+                android:ems="11"
+                android:hint="请输入"
+                android:inputType="textMultiLine"
+                android:lines="2"
+                android:maxLines="2"
+                android:textColor="#333333"
+                android:textColorHint="#cbcbcb"
+                android:textCursorDrawable="@null"
+                android:textSize="16sp"
+                android:typeface="sans"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/half_btn_send"
+                android:layout_width="@dimen/x82"
+                android:layout_height="@dimen/x68"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x26"
+                android:layout_marginTop="@dimen/y10"
+                android:background="@drawable/shape_send"
+                android:text="发送"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/half_img_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x26"
+                android:layout_marginTop="@dimen/y10"
+                android:src="@drawable/icon_help" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/half_diliver"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_above="@id/half_bar_layout"
+            android:background="#cbcbcb" />
+
+        <RelativeLayout
+            android:id="@+id/half_chat_web"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y400"
+            android:layout_above="@id/half_diliver"
+            android:background="#ffffff">
+            <ProgressBar
+                android:id="@+id/half_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y4"
+                android:layout_marginLeft="@dimen/x12"
+                android:layout_marginRight="@dimen/x12"
+                android:layout_alignParentTop="true"
+                android:indeterminateOnly="false"
+                android:progress="10"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_bar_states" />
+            <WebView
+                android:id="@+id/half_web_chat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x12"
+                android:layout_marginRight="@dimen/x12"
+                android:layout_marginTop="@dimen/y12"
+                android:scrollbars="none"
+                >
+            </WebView>
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>

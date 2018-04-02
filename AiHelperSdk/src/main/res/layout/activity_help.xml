@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_help"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.gzln.goba.activities.HelpActivity">
+
+    <RelativeLayout
+        android:id="@+id/help_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/img_help_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x20"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/tv_themename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="AI助手"
+            android:textColor="#474747"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/help_diliver"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/help_back"
+        android:background="#b9b9b9" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/help_diliver"
+        android:scrollbars="none">
+
+        <TextView
+            android:id="@+id/tv_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="4dp"
+            android:lineSpacingMultiplier="1.2"
+            android:text="hello world"
+            android:textSize="16sp" />
+
+    </ScrollView>
+
+
+</RelativeLayout>

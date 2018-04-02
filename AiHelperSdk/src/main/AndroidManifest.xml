@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gzln.goba">
+
+    <!-- <supports-screens -->
+    <!-- android:anyDensity="true" -->
+    <!-- android:largeScreens="true" -->
+    <!-- android:normalScreens="false" -->
+    <!-- android:resizeable="true" -->
+    <!-- android:smallScreens="true" /> -->
+    <application
+        android:allowBackup="true"
+        android:persistent="true">
+        <activity
+            android:name=".activities.FullScreenActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+
+        </activity>
+
+        <!-- <service -->
+        <!-- android:name="com.gzln.goba.services.FloatButtonService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true"> -->
+
+
+        <!-- </service> -->
+        <activity
+            android:name=".activities.HelpActivity"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+
+        </activity>
+    </application>
+
+</manifest>
