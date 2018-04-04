@@ -1,10 +1,13 @@
 package com.example.aihelpertest.utils;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
@@ -51,11 +54,29 @@ public class HttpUtils {
         return "-1";
     }
 
+    public static String submitGetData(String strUrlPath, String encode){
+        try {
+            URL url = new URL(strUrlPath);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setReadTimeout(3000);
+            httpURLConnection.setRequestMethod("GET");
+            httpURLConnection.connect();
+            int response = httpURLConnection.getResponseCode();            //获得服务器的响应码
+            if (response == HttpURLConnection.HTTP_OK) {
+                InputStream inptStream = httpURLConnection.getInputStream();
+                return dealResponseResult(inptStream);                     //处理服务器的响应结果
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "-1";
+    }
+
     /*
      * Function  :   封装请求体信息
      * Param     :   params请求体内容，encode编码格式
      */
-    public static StringBuffer getRequestData(Map<String, String> params, String encode) {
+    private static StringBuffer getRequestData(Map<String, String> params, String encode) {
         StringBuffer stringBuffer = new StringBuffer();        //存储封装好的请求体信息
         try {
             for (Map.Entry<String, String> entry : params.entrySet()) {
@@ -75,7 +96,7 @@ public class HttpUtils {
      * Function  :   处理服务器的响应结果（将输入流转化成字符串）
      * Param     :   inputStream服务器的响应输入流
      */
-    public static String dealResponseResult(InputStream inputStream) {
+    private static String dealResponseResult(InputStream inputStream) {
         String resultData = null;      //存储处理结果
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         byte[] data = new byte[1024];

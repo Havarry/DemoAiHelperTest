@@ -5,11 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Toast;
-
-import com.gzln.goba.R;
 import com.gzln.goba.utils.MyToast;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.SpeechUtility;
@@ -39,6 +34,7 @@ public class AIHelper {
     private HashMap<String, String> mIatResults = new LinkedHashMap<String, String>();
     private boolean isCancel = false;
     private CallBackFuns _funs;
+    private int accent_flag = 1;
 
     public AIHelper(Context context, CallBackFuns funs) {
         this.context = context;
@@ -82,7 +78,7 @@ public class AIHelper {
         mIat = SpeechRecognizer.createRecognizer(context, null);
         mIat.setParameter(SpeechConstant.DOMAIN, "iat");
         mIat.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
-        mIat.setParameter(SpeechConstant.ACCENT, "mandarin");
+        setAccent(1);
         mIat.setParameter(SpeechConstant.ASR_PTT, "0"); // 去除标点
         mIat.setParameter(SpeechConstant.VAD_ENABLE, "1"); // 禁止静音抑制,默认为1开启，0关闭
         mIat.setParameter(SpeechConstant.VAD_EOS, "10000"); // 后端点超时，最大值
@@ -94,73 +90,7 @@ public class AIHelper {
         mIat.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD);
         mIat.setParameter(SpeechConstant.TEXT_ENCODING, "utf-8");
         // 函数调用返回值
-        String contents = "{\"userword\":[{\"name\":\"云货通名词\",\"words\":[";
-        contents += "\"快速开单\",";
-        contents += "\"开单\",";
-        contents += "\"零售客户\",";
-        contents += "\"批发客户\",";
-        contents += "\"百里屠苏\",";
-        contents += "\"风晴雪\",";
-        contents += "\"方兰生\",";
-        contents += "\"襄铃\",";
-        contents += "\"红玉\",";
-        contents += "\"太子长琴\",";
-        contents += "\"尹千觞\",";
-        contents += "\"何生\",";
-        contents += "\"韩版时尚围巾\",";
-        contents += "\"韩版时尚卫衣\",";
-        contents += "\"日版潮流棒球帽\",";
-        contents += "\"杏色\",";
-        contents += "\"玫瑰红\",";
-        contents += "\"棕色\",";
-        contents += "\"咖啡\",";
-        contents += "\"深蓝色\",";
-        contents += "\"浅蓝色\",";
-        contents += "\"蓝色\",";
-        contents += "\"浅绿色\",";
-        contents += "\"军绿色\",";
-        contents += "\"绿色\",";
-        contents += "\"紫罗兰\",";
-        contents += "\"深紫色\",";
-        contents += "\"紫色\",";
-        contents += "\"酒红色\",";
-        contents += "\"红色\",";
-        contents += "\"粉红色\",";
-        contents += "\"巧克力色\",";
-        contents += "\"卡其色\",";
-        contents += "\"褐色\",";
-        contents += "\"橘色\",";
-        contents += "\"浅黄色\",";
-        contents += "\"黄色\",";
-        contents += "\"深灰色\",";
-        contents += "\"浅白色\",";
-        contents += "\"白色\",";
-        contents += "\"黑色\",";
-        contents += "\"XS\",";
-        contents += "\"S\",";
-        contents += "\"M\",";
-        contents += "\"L\",";
-        contents += "\"XL\",";
-        contents += "\"XXL\",";
-        contents += "\"XXXL\",";
-        contents += "\"均码\",";
-        contents += "\"蔡伟盛\",";
-        contents += "\"卢光焕\",";
-        contents += "\"网店\",";
-        contents += "\"门店\",";
-        contents += "\"工厂\",";
-        contents += "\"订单\",";
-        contents += "\"发起\",";
-        contents += "\"一审\",";
-        contents += "\"二审\",";
-        contents += "\"三审\",";
-        contents += "\"四审\",";
-        contents += "\"五审\",";
-        contents += "\"六审\",";
-        contents += "\"七审\",";
-        contents += "\"通过\",";
-        contents += "\"作废\"";
-        contents += "]}]}";
+        String contents = "";
         int ret = mIat.updateLexicon("userword", contents, mLexiconListener);
         if (ret != ErrorCode.SUCCESS)
             Log.e("科大讯飞Error", "上传热词失败,错误码：" + ret);
@@ -273,5 +203,16 @@ public class AIHelper {
         myToast.setText(toast);
         myToast.setDuration(1500);
         myToast.show(500);
+    }
+
+    private void setAccent(int lang){
+        switch (lang){
+            case 1:
+                mIat.setParameter(SpeechConstant.ACCENT, "mandarin");
+                break;
+            case 2:
+                mIat.setParameter(SpeechConstant.ACCENT, "cantonese");
+                break;
+        }
     }
 }
